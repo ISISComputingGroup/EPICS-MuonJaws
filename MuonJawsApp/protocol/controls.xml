@@ -1,0 +1,58 @@
+<VI syntaxVersion="11" LVversion="10008000" revision="23" name="Muon Jaws - System Functions - Front Panel.vi">
+<TITLE></TITLE>
+<HELP_PATH></HELP_PATH>
+<HELP_TAG></HELP_TAG>
+<RTM_PATH type="default"></RTM_PATH>
+<DESC></DESC>
+<CONTENT>
+	<GROUPER>
+		<PARTS>
+		</PARTS></GROUPER>
+	<CONTROL ID="81" type="String" name="Message">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Message</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Position">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Position</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Set Point">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Set Point</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="Set">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Set</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Voltage to go to">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Voltage to go to</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Present Voltage">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Present Voltage</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+</CONTENT>
+</VI>
+
+

@@ -9,15 +9,11 @@
 #
 #     lvDCOMConfigure("lvfp", "frontpanel", "/path/to/lvinput.xml")
 # 
-      
-## Creating both stringout/stringin and waveform records for "Message" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
 
 # Read LabVIEW control/indicator "Message" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(waveform, "$(P)MessageWF_RBV")
+record(waveform, "$(P)ERROR:RBV")
 {
-	field(DESC, "LabVIEW 'Message'")
+	field(DESC, "Error Message")
     field(DTYP, "asynOctetRead")
 	field(FTVL, "CHAR")
 	field(NELM, 256)
@@ -26,72 +22,65 @@ record(waveform, "$(P)MessageWF_RBV")
 }
 
 # Read LabVIEW control/indicator "Position" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)Position_RBV")
+record(ai, "$(P)POSN:RBV")
 {
-	field(DESC, "LabVIEW 'Position'")
+	field(DESC, "Position")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Position")
-    field(PREC, "3")
+    field(PREC, "4")
+    field(EGU, "mm")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "Set Point" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)Set_Point_RBV")
+record(ai, "$(P)POSN:SP:RBV")
 {
-	field(DESC, "LabVIEW 'Set Point'")
+	field(DESC, "Position Set Point Readback")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Set_Point")
     field(PREC, "3")
+    field(EGU, "mm")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "Set Point" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ao, "$(P)Set_Point")
+record(ao, "$(P)POSN:SP")
 {
-	field(DESC, "LabVIEW 'Set Point'")
+	field(DESC, "Position Set Point")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)Set_Point")
     field(PREC, "3")
-}
-
-# Read LabVIEW control/indicator "Set" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(bi, "$(P)Set_RBV")
-{
-	field(DESC, "LabVIEW 'Set'")
-    field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)Set")
-    field(SCAN, ".1 second")
-    field(ZNAM, "")
-    field(ONAM, "")
+    field(EGU, "mm")
 }
 
 # Write to LabVIEW control "Set" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(bo, "$(P)Set")
+record(bo, "$(P)SET:SP")
 {
-	field(DESC, "LabVIEW 'Set'")
+	field(DESC, "Set Button Set Point")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn(lvfp,0,0)Set")
-    field(ZNAM, "")
-    field(ONAM, "")
+    field(ZNAM, "ON")
+    field(ONAM, "OFF")
 }
 
-
 # Read LabVIEW control/indicator "Voltage to go to" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)Voltage_to_go_to_RBV")
+record(ai, "$(P)VOLTAGE:SP:RBV")
 {
-	field(DESC, "LabVIEW 'Voltage to go to'")
+	field(DESC, "Target Voltage Readback")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Voltage_to_go_to")
     field(PREC, "3")
+    field(EGU, "V")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "Present Voltage" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)Present_Voltage_RBV")
+record(ai, "$(P)VOLTAGE:RBV")
 {
-	field(DESC, "LabVIEW 'Present Voltage'")
+	field(DESC, "Actual Voltage")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Present_Voltage")
-    field(PREC, "3")
+    field(PREC, "4")
+    field(EGU, "V")
     field(SCAN, ".1 second")
 }

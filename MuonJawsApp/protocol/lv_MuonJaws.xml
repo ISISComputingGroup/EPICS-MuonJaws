@@ -21,12 +21,7 @@
       </param>
       <param name="Set_Point" type="float64">
         <read method="GCV" target="Set Point"/>
-        <set method="SCV" extint="true" target="Set Point"/>
-      </param>
-      <param name="Set" type="boolean">
-        <items/>
-        <read method="GCV" target="Set"/>
-        <set method="SCV" extint="true" target="Set"/>
+        <set method="SCV" extint="true" target="Set Point" post_button="Set" post_button_wait="true"/>
       </param>
       <param name="Voltage_to_go_to" type="float64">
         <read method="GCV" target="Voltage to go to"/>

@@ -11,7 +11,8 @@
 # 
 
 # Read LabVIEW control/indicator "Message" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(waveform, "$(P)ERROR:RBV")
+
+record(waveform, "$(P)ERROR")
 {
 	field(DESC, "Error Message")
     field(DTYP, "asynOctetRead")
@@ -22,23 +23,12 @@ record(waveform, "$(P)ERROR:RBV")
 }
 
 # Read LabVIEW control/indicator "Position" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)POSN:RBV")
+record(ai, "$(P)POSN")
 {
 	field(DESC, "Position")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Position")
     field(PREC, "4")
-    field(EGU, "mm")
-    field(SCAN, ".1 second")
-}
-
-# Read LabVIEW control/indicator "Set Point" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)POSN:SP:RBV")
-{
-	field(DESC, "Position Set Point Readback")
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Set_Point")
-    field(PREC, "3")
     field(EGU, "mm")
     field(SCAN, ".1 second")
 }
@@ -53,15 +43,18 @@ record(ao, "$(P)POSN:SP")
     field(EGU, "mm")
 }
 
-# Write to LabVIEW control "Set" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(bo, "$(P)SET:SP")
+# Read LabVIEW control/indicator "Present Voltage" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
+record(ai, "$(P)VOLTAGE")
 {
-	field(DESC, "Set Button Set Point")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)Set")
-    field(ZNAM, "ON")
-    field(ONAM, "OFF")
+	field(DESC, "Actual Voltage")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn(lvfp,0,0)Present_Voltage")
+    field(PREC, "4")
+    field(EGU, "V")
+    field(SCAN, ".1 second")
 }
+
+# Cannot write to voltage setpoint, so only RBV defined
 
 # Read LabVIEW control/indicator "Voltage to go to" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
 record(ai, "$(P)VOLTAGE:SP:RBV")
@@ -70,17 +63,6 @@ record(ai, "$(P)VOLTAGE:SP:RBV")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Voltage_to_go_to")
     field(PREC, "3")
-    field(EGU, "V")
-    field(SCAN, ".1 second")
-}
-
-# Read LabVIEW control/indicator "Present Voltage" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)VOLTAGE:RBV")
-{
-	field(DESC, "Actual Voltage")
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Present_Voltage")
-    field(PREC, "4")
     field(EGU, "V")
     field(SCAN, ".1 second")
 }

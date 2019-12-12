@@ -25,16 +25,13 @@ lvDCOMConfigure("lvfp", "frontpanel", "${TOP}/data/lv_MuonJaws.xml", "$(LVDCOM_H
 ##ISIS## Load common DB records 
 < $(IOCSTARTUP)/dbload.cmd
 
-dbLoadRecords("db/MuonJaws.db", "P=$(MYPVPREFIX)$(IOCNAME):")
+dbLoadRecords("$(MUONJAWS)db/MuonJaws.db", "P=$(MYPVPREFIX)$(IOCNAME):")
 
 ##ISIS## Stuff that needs to be done after all records are loaded but before iocInit is called 
 < $(IOCSTARTUP)/preiocinit.cmd
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
-
-## Start any sequence programs
-#seq sncxxx,"user=hgv27692Host"
 
 ##ISIS## Stuff that needs to be done after iocInit is called e.g. sequence programs 
 < $(IOCSTARTUP)/postiocinit.cmd

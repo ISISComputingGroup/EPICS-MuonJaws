@@ -2,11 +2,8 @@
 <ioc_config xmlns:xi="http://www.w3.org/2001/XInclude">
 <config_part>
 <macros>
-<!-- check st-port.cmd for defaults -->
-<macro name="VI_TEMP_1" pattern="^[A-Z0-9]+$" description="Suffix of the vi temperature panel, usually '1' or blank for no controller." />
-<macro name="VI_TEMP_2" pattern="^[A-Z0-9]+$" description="Suffix of the vi temperature panel, usually '2' or blank for no controller." />
-<macro name="VI_TEMP_3" pattern="^[A-Z0-9]+$" description="Suffix of the vi temperature panel, usually '3' or blank for no controller." />
-<macro name="VI_TEMP_4" pattern="^[A-Z0-9]+$" description="Suffix of the vi temperature panel, usually '4' or blank for no controller." />
+<macro name="LVDCOM_OPTIONS" pattern="^\d?\d?$" description="Options that define how the VI is started. Add selected options together to make the final value. 1 - warn if idle, 2 - start if idle, 4 - stop VIs if started on exit, 8 - stop VI on exit. (Default 1)" />
+<macro name="LVDCOM_HOST" pattern="^.*$" description="Host on which the vi is running, blank for localhost (Default '')" />
 </macros>
 </config_part>
 </ioc_config>

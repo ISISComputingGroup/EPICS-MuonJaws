@@ -14,6 +14,9 @@ cd ${TOP}
 dbLoadDatabase "dbd/MuonJaws.dbd"
 MuonJaws_registerRecordDeviceDriver pdbbase
 
+# Configure lvDCOM interface
+lvDCOMConfigure("lvfp", "frontpanel", "${TOP}/data/lv_MuonJaws.xml", "$(LVDCOM_HOST="")", $(LVDCOM_OPTIONS=2)")
+
 ##ISIS## Run IOC initialisation 
 < $(IOCSTARTUP)/init.cmd
 

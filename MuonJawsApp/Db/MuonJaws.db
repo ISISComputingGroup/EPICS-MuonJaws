@@ -10,8 +10,8 @@
 #     lvDCOMConfigure("lvfp", "frontpanel", "/path/to/lvinput.xml")
 # 
 
-# Read LabVIEW control/indicator "Message" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
 
+# Read LabVIEW control/indicator "Message" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
 record(waveform, "$(P)ERROR")
 {
 	field(DESC, "Error Message")
@@ -19,7 +19,7 @@ record(waveform, "$(P)ERROR")
 	field(FTVL, "CHAR")
 	field(NELM, 256)
     field(INP,  "@asyn(lvfp,0,0)Message")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     info(INTEREST, "LOW")
 }
 
@@ -30,9 +30,9 @@ record(ai, "$(P)POSN")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Position")
     field(PREC, "4")
-    field(SCAN, ".1 second")
-    info(INTEREST, "HIGH")
+    field(SCAN, ".5 second")
     field(EGU, "mm")
+    info(INTEREST, "HIGH")
     info(archive, "VAL")
     info(alarm, "MUONJAWS")
 }
@@ -44,10 +44,13 @@ record(ao, "$(P)POSN:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)Set_Point")
     field(PREC, "3")
-    info(INTEREST, "HIGH")
     field(EGU, "mm")
+    info(INTEREST, "HIGH")
+    info(archive, "VAL")
     info(autosaveFields, "VAL")
 }
+
+alias("$(P)POSN:SP", "$(P)POSN:SP:RBV")
 
 # Read LabVIEW control/indicator "Present Voltage" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
 record(ai, "$(P)VOLTAGE")
@@ -56,22 +59,23 @@ record(ai, "$(P)VOLTAGE")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Present_Voltage")
     field(PREC, "4")
-    field(SCAN, ".1 second")
-    info(INTEREST, "MEDIUM")    
+    field(SCAN, ".5 second")
     field(EGU, "V")
+    info(INTEREST, "MEDIUM")    
     info(archive, "VAL")
 }
 
 # Cannot write to voltage setpoint, so only RBV defined
 
 # Read LabVIEW control/indicator "Voltage to go to" on "C:/LabVIEW Modules/Instruments/MUSR/Muon Jaws/Muon Jaws - System Functions.llb/Muon Jaws - System Functions - Front Panel.vi"
-record(ai, "$(P)VOLTAGE:SP:RBV")
+record(ai, "$(P)VOLTAGE:TARGET")
 {
 	field(DESC, "Target Voltage Readback")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)Voltage_to_go_to")
     field(PREC, "3")
-    field(SCAN, ".1 second")
-    info(INTEREST, "MEDIUM")    
+    field(SCAN, ".5 second")
     field(EGU, "V")
+    info(INTEREST, "MEDIUM")    
+    info(archive, "VAL")    
 }

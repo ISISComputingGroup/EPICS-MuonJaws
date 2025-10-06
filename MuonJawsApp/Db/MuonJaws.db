@@ -33,7 +33,7 @@ record(ai, "$(P)POSN")
     field(SCAN, ".5 second")
     field(EGU, "mm")
     info(INTEREST, "HIGH")
-    info(archive, "VAL")
+    info(archive, "60.0 VAL")
     info(alarm, "MUONJAWS")
 }
 
@@ -48,7 +48,7 @@ record(ao, "$(P)POSN:SP")
     field(DRVL, 4.6)
     field(DRVH, 100.0)
     info(INTEREST, "HIGH")
-    info(archive, "VAL")
+    info(archive, "60.0 VAL")
     info(autosaveFields, "VAL")
 }
 
@@ -64,7 +64,7 @@ record(ai, "$(P)VOLTAGE")
     field(SCAN, ".5 second")
     field(EGU, "V")
     info(INTEREST, "MEDIUM")    
-    info(archive, "VAL")
+    info(archive, "60.0 VAL")
 }
 
 # Cannot write to voltage setpoint, so only RBV defined
@@ -79,5 +79,5 @@ record(ai, "$(P)VOLTAGE:TARGET")
     field(SCAN, ".5 second")
     field(EGU, "V")
     info(INTEREST, "MEDIUM")    
-    info(archive, "VAL")    
+    info(archive, "60.0 VAL")    
 }
